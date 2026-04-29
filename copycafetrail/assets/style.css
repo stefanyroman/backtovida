@@ -1,170 +1,259 @@
-body {
+/* RESET */
+* {
     margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: #f4f1ed;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Calibri, Arial, sans-serif;
+    background: #f7f4ef;
     color: #111;
 }
 
-/* NAVBAR */
+/* ================= NAV ================= */
 .nav {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 18px 50px;
+    height: 70px;
+    background: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-
+    padding: 0 50px;
+    border-bottom: 1px solid #eee;
     z-index: 1000;
 }
 
 .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
 }
 
 .nav-links a {
-    margin-left: 25px;
-    text-decoration: none;
-    color: #333;
-    font-size: 14px;
-}
-
-/* BUTTON */
-.highlight {
-    padding: 8px 16px;
-    border: 1px solid #6b4f3b;
-    border-radius: 20px;
-}
-
-.highlight:hover {
-    background: #6b4f3b;
-    color: white;
-}
-
-/* HERO */
-.hero {
     position: relative;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 1px;
+    background: black;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ================= HERO ================= */
+.hero {
     height: 100vh;
     margin-top: 70px;
+    position: relative;
     overflow: hidden;
 }
 
-/* IMAGE (ZOOM EFFECT) */
 .hero-image {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url("your-image.jpg") center/cover no-repeat;
-    animation: zoom 20s ease-in-out infinite alternate;
+    inset: 0;
 }
 
-/* DARK OVERLAY */
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
+}
+
 .overlay {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        rgba(0,0,0,0.35),
-        rgba(0,0,0,0.55)
-    );
+    inset: 0;
+    background: rgba(0,0,0,0.25);
 }
 
-/* TEXT */
 .hero-text {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) translateY(20px);
-
-    text-align: center;
+    bottom: 90px;
+    left: 70px;
     color: white;
-    width: 80%;
-
-    opacity: 0;
-    animation: fadeUp 1.5s ease forwards;
 }
 
-/* TITLE */
 .hero-text h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 52px;
-    margin: 0;
+    font-size: 64px;
+    font-weight: 400;
 }
 
-/* TAGLINE */
-.tagline {
-    margin-top: 15px;
-    font-size: 16px;
-    opacity: 0.9;
-}
-
-/* LOCATION */
-.location {
+.hero-text p {
     margin-top: 10px;
-    font-size: 14px;
-    opacity: 0.8;
-    line-height: 1.6;
+    font-size: 16px;
 }
 
-/* SCROLL INDICATOR */
-.scroll-down {
+/* ================= GRID (ROSE GARDEN VIBE CORE) ================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 100px 70px;
+}
+
+.card {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.card:hover img {
+    transform: scale(1.08);
+}
+
+.placeholder {
+    width: 100%;
+    height: 100%;
+    background: #ddd;
+}
+
+/* HOVER OVERLAY */
+.hover {
     position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 35px;
-    border: 1px solid white;
-    border-radius: 20px;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    opacity: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 20px;
+    transition: 0.3s ease;
 }
 
-.scroll-down::after {
-    content: "";
-    position: absolute;
-    top: 6px;
-    left: 50%;
-    width: 4px;
-    height: 4px;
-    background: white;
-    border-radius: 50%;
-    transform: translateX(-50%);
-    animation: scroll 2s infinite;
+.card:hover .hover {
+    opacity: 1;
 }
 
-/* ANIMATIONS */
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%) translateY(0);
-    }
+.hover p {
+    color: white;
+    font-size: 16px;
 }
 
-@keyframes zoom {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.1);
-    }
+/* ================= SECTIONS ================= */
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 150px 120px;
+    gap: 80px;
 }
 
-@keyframes scroll {
-    0% { top: 6px; opacity: 1; }
-    100% { top: 20px; opacity: 0; }
+.section.alt {
+    flex-direction: row-reverse;
 }
 
-/* MOBILE */
+.text {
+    flex: 1;
+}
+
+.text h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.text p {
+    color: #444;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* IMAGE SYSTEM */
+.image {
+    flex: 1;
+}
+
+.image img {
+    width: 100%;
+    max-width: 520px;
+    height: 440px;
+    object-fit: cover;
+}
+
+/* EVENTS BOX */
+.image-box {
+    width: 100%;
+    max-width: 520px;
+    height: 440px;
+    background: #ddd;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    text-align: center;
+    padding: 140px 60px;
+    background: #efebe6;
+}
+
+.signup {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.signup input {
+    padding: 12px;
+    width: 260px;
+    border: none;
+}
+
+.signup button {
+    padding: 12px 18px;
+    background: #6b4f3b;
+    color: white;
+    border: none;
+}
+
+.small {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #777;
+}
+
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
-    .hero-text h1 {
-        font-size: 32px;
+
+    .grid {
+        grid-template-columns: 1fr;
+        padding: 50px 20px;
     }
 
-    .tagline {
-        font-size: 14px;
+    .section,
+    .section.alt {
+        flex-direction: column;
+        padding: 70px 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 38px;
     }
 }

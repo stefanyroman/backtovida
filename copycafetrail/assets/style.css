@@ -66,7 +66,7 @@ body {
 /* ================= HERO ================= */
 .hero {
     height: 100vh;
-    margin-top: 70px;
+    margin-top: 60px;
     position: relative;
     overflow: hidden;
 }
@@ -112,11 +112,27 @@ body {
 /* ================= FEATURE GRID ================= */
 .feature-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: repeat(3, 1fr); /* THIS FIXES EVERYTHING */
     gap: 25px;
     padding: 100px 70px;
 }
 
+/* BIG LEFT */
+.feature.big {
+    grid-column: span 2;
+    grid-row: span 2;
+    height: 540px;
+}
+
+/* RIGHT STACKED (2 cards) */
+.feature.small {
+    height: 245px;
+}
+
+/* BOTTOM ROW (3 evenly sized) */
+.feature.bottom {
+    height: 200px;
+}
 /* CARD */
 .feature {
     position: relative;
@@ -185,111 +201,14 @@ body {
     opacity: 1;
 }
 
-/* ================= MOBILE ACTION BUTTONS ================= */
-.mobile-actions {
-    display: none;
-}
-
-/* ================= FOOTER ================= */
-.footer {
-    text-align: center;
-    padding: 140px 60px;
-    background: #efebe6;
-}
-
-.signup {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.signup input {
-    padding: 12px;
-    width: 260px;
-    border: none;
-}
-
-.signup button {
-    padding: 12px 18px;
-    background: #6b4f3b;
-    color: white;
-    border: none;
-}
-
-.small {
-    margin-top: 25px;
-    font-size: 12px;
-    color: #777;
-}
-
-/* ================= MOBILE ================= */
+/* ================= MOBILE CLEAN SYSTEM ================= */
 @media (max-width: 768px) {
 
     body {
         background: #f3f2ef;
     }
 
-    /* HERO */
-    .hero {
-        height: auto;
-        padding: 20px;
-        margin-top: 90px;
-    }
-
-    .hero-image img {
-        height: 300px;
-        border-radius: 20px;
-    }
-
-    .hero-text {
-    bottom: 100px;
-    left: 80px;
-}
-
-    .hero-text h1 {
-        font-size: 36px;
-    }
-
-    .hero-text h2 {
-        font-size: 14px;
-    }
-
-    /* BUTTONS */
-    .mobile-actions {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin: 20px;
-    }
-
-    .mobile-actions button {
-        background: black;
-        color: white;
-        border: none;
-        padding: 10px 18px;
-        border-radius: 999px;
-        font-size: 13px;
-    }
-
-    /* FEATURE GRID → STACK */
-    .feature-grid {
-        grid-template-columns: 1fr;
-        padding: 40px 20px;
-    }
-
-    .feature {
-        height: 260px !important;
-    }
-
-    /* FOOTER */
-    .footer {
-        border-radius: 20px 20px 0 0;
-        padding: 60px 20px;
-    }
-}
-
-@media (max-width: 768px) {
-
+    /* NAV */
     .nav {
         padding: 0 20px;
         height: 60px;
@@ -300,11 +219,101 @@ body {
     }
 
     .nav-links {
-        gap: 15px;
+        display: none; /* clean mobile look */
     }
 
-    .nav-links a {
-        font-size: 11px;
+    /* HERO */
+    .hero {
+        height: auto;
+        padding: 15px;
+        margin-top: 80px;
     }
 
+    .hero-image img {
+        height: 260px;
+        border-radius: 20px;
+    }
+
+    .overlay {
+        border-radius: 20px;
+    }
+
+    .hero-text {
+        bottom: 25px;
+        left: 20px;
+        right: 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 28px;
+        line-height: 1.1;
+    }
+
+    .hero-text h2 {
+        font-size: 13px;
+        margin-top: 5px;
+    }
+
+    /* ACTION BUTTONS */
+    .mobile-actions {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    .mobile-actions button {
+        background: black;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 999px;
+        font-size: 12px;
+    }
+
+    /* FEATURE GRID → STACKED CLEAN */
+    .feature-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .feature {
+        height: 240px !important;
+        border-radius: 20px;
+    }
+
+    /* TEXT INSIDE CARDS */
+    .feature-text {
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .feature-text h2 {
+        font-size: 18px;
+    }
+
+    .feature-text p {
+        font-size: 12px;
+    }
+
+    /* FOOTER */
+    .footer {
+        margin-top: 40px;
+        padding: 60px 20px;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .signup {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .signup input {
+        width: 100%;
+    }
+
+    .signup button {
+        width: 100%;
+    }
 }

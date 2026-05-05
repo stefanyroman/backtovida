@@ -300,9 +300,9 @@ body {
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin: 20px 0 10px 0; /* LESS bottom space */
+    margin: 20px 0 10px 0;
+    flex-wrap: wrap; /* helps if 3 buttons */
 }
-
     /* FEATURE GRID → STACKED CLEAN */
 .feature-grid {
     padding: 60px 20px;

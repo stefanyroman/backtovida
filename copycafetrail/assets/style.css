@@ -13,6 +13,37 @@ body {
 }
 
 /* ================= NAV ================= */
+
+/* MOBILE ACTION BUTTONS */
+.mobile-actions {
+    display: flex;
+    justify-content: center;  /* centers horizontally */
+    align-items: center;
+    gap: 12px;
+    margin: 20px auto;
+}
+
+/* BUTTON STYLE */
+.action-btn {
+    background: #d6c2a8; /* light brown aesthetic */
+    color: #1c1c1c;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 999px; /* bubble shape */
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    transition: 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.action-btn:hover {
+    background: #c3ab8c;
+    transform: translateY(-2px);
+}
+.action-btn {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
 .nav {
     position: fixed;
     top: 0;
@@ -114,7 +145,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* THIS FIXES EVERYTHING */
     gap: 25px;
-    padding: 100px 70px;
+    padding: 50px 70px;
 }
 
 /* BIG LEFT */
@@ -264,21 +295,17 @@ body {
         margin: 20px 0;
     }
 
-    .mobile-actions button {
-        background: black;
-        color: white;
-        border: none;
-        padding: 10px 16px;
-        border-radius: 999px;
-        font-size: 12px;
-    }
+.mobile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0 10px 0; /* LESS bottom space */
+}
 
     /* FEATURE GRID → STACKED CLEAN */
-    .feature-grid {
-        grid-template-columns: 1fr;
-        padding: 20px;
-        gap: 20px;
-    }
+.feature-grid {
+    padding: 60px 20px;
+}
 
     .feature {
         height: 240px !important;

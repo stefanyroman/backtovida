@@ -316,10 +316,41 @@ body {
     }
 
     /* HERO */
+     .hero {
+        position: relative;
+        height: 320px;
+        margin-top: 60px;
+        overflow: hidden;
+    }
+
+    .hero-image {
+        position: absolute;
+        inset: 0;
+    }
+
     .hero-image img {
         width: 100%;
-        height: 320px;
+        height: 100%;
         object-fit: cover;
+        display: block;
+    }
+
+    /* REMOVE GREY LOOK */
+    .overlay {
+        display: none;
+    }
+
+    /* TEXT OVER IMAGE */
+    .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        width: 100%;
+        padding: 0 20px;
+        z-index: 2;
     }
 
     .hero-text h1 {
@@ -329,7 +360,7 @@ body {
     .hero-text h2 {
         font-size: 13px;
     }
-    
+}
 
     /* BUTTONS */
     .mobile-actions {

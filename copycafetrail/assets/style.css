@@ -201,6 +201,8 @@ body {
     opacity: 1;
 }
 
+.footer { text-align: center; padding: 140px 60px; background: #efebe6; } .signup { margin-top: 20px; display: flex; justify-content: center; } .signup input { padding: 12px; width: 260px; border: none; } .signup button { padding: 12px 18px; background: #6b4f3b; color: white; border: none; } .small { margin-top: 25px; font-size: 12px; color: #777; }
+
 /* ================= MOBILE CLEAN SYSTEM ================= */
 @media (max-width: 768px) {
 

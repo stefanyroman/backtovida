@@ -110,7 +110,36 @@
 
 </section>
 
-<!-- FOOTER -->
+<!-- UPCOMING EVENTS -->
+<section class="info-block">
+    <div class="info-image">
+        <img src="img/vidarun.png" alt="Upcoming Events">
+    </div>
+
+    <div class="info-text">
+        <h2>Upcoming Events</h2>
+        <p>
+            Join us this season for live music, community nights, and special café gatherings.
+            Stay tuned for weekly happenings at Vida Cafe.
+        </p>
+    </div>
+</section>
+
+<!-- SPRING MENU -->
+<section class="info-block reverse">
+    <div class="info-image">
+        <img src="spring-menu.jpg" alt="Spring Menu">
+    </div>
+
+    <div class="info-text">
+        <h2>Spring Menu</h2>
+        <p>
+            Fresh seasonal drinks and pastries inspired by spring flavors. 
+            Crafted daily with love and local ingredients.
+        </p>
+    </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-content">
@@ -131,6 +160,24 @@
 function toggleMenu() {
   document.querySelector(".nav-links").classList.toggle("show");
 }
+
+/* ===== Scroll animation for info blocks ===== */
+const blocks = document.querySelectorAll('.info-block');
+
+function showOnScroll() {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    blocks.forEach(block => {
+        const boxTop = block.getBoundingClientRect().top;
+
+        if (boxTop < triggerBottom) {
+            block.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', showOnScroll);
+showOnScroll();
 </script>
 
 </body>

@@ -125,11 +125,10 @@ body {
 
 .feature-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 20px 30px;
 }
-
 
 /* BASE CARD */
 .feature {
@@ -182,25 +181,15 @@ body {
 
 /* SIZE CONTROLS */
 .feature.big {
-    grid-row: span 2;
-    height: 420px;
+    height: 400px;
+    width: 500px;
+    /* grid-column: span 1; /* stop it from stretching weirdly */
 }
 
-.feature.small {
+.feature.small,
+.feature.bottom {
     height: 240px;
 }
-
-.feature.bottom {
-    height: 260px;
-}
-.feature.small:nth-of-type(2) {
-    height: 200px;
-}
-
-.feature.small:nth-of-type(3) {
-    height: 200px;
-}
-
 /* ================= FOOTER ================= */
 
 .footer {
